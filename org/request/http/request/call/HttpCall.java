@@ -11,6 +11,7 @@ import org.request.http.request.response.Response;
 import org.request.retrofit.response.XFailureResponse;
 
 import java.net.HttpURLConnection;
+import java.util.concurrent.CompletableFuture;
 
 public final class HttpCall implements Call{
 

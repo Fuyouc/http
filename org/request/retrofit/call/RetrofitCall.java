@@ -62,10 +62,10 @@ public class RetrofitCall<T> implements Call<T>{
             ParameterizedType type = (ParameterizedType) returnType;
             returnClass = (Class<?>) type.getRawType();
         }
-        /**
-         * 不处理Void获取数据为空的类型
-         */
-        if (!(Void.class.isAssignableFrom(returnClass)) &&response.data() != null) {
+        if (String.class.isAssignableFrom(returnClass)){
+            //如果是string类型，则直接将响应结果给他就好
+            return new XResponse<T>((T) response.data(),response);
+        } else if (!(Void.class.isAssignableFrom(returnClass)) &&response.data() != null) {
             result = (T) Gson.object(response.data(), returnClass);
         }
         return new XResponse<>(result,response);

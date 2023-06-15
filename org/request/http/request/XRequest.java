@@ -6,7 +6,6 @@ import org.request.http.config.NetWorkConfiguration;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
-import java.net.http.HttpRequest;
 import java.util.*;
 
 public final class XRequest implements Request {

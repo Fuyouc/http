@@ -105,6 +105,7 @@ public interface Service {
      * 参数会自动拼接到GET请求参数中。使用@Param可以指定参数key（默认使用参数名）
      * 接口返回值必须使用 Call<响应类型>，在Call的泛型中，可以指定任意的响应类型，Retrofit会将响应结果自动封装成该对象
      * 如果不需要返回值，则使用Call<Void>即可
+     * 如果需要原始字符串,则使用Call<String>即可
      */
     @GET("/user/getInfo")
     Call<Map<String,Object>> getUserInfo(Map<String,Object> map, @Param("key名称") String key);
