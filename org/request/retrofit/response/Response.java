@@ -26,6 +26,11 @@ public interface Response<T> {
     int getContentLength();
 
     /**
+     * 获得URL
+     */
+    String getURL();
+
+    /**
      * 获取单个响应头
      */
     String getHeader(String key);

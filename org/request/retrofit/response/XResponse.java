@@ -35,6 +35,11 @@ public class XResponse<T> implements Response<T>{
     }
 
     @Override
+    public String getURL() {
+        return response.getURL();
+    }
+
+    @Override
     public String getHeader(String key) {
         return response.getHeader(key);
     }

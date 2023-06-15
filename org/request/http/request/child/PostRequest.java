@@ -33,9 +33,9 @@ public class PostRequest extends AbstractNetworkRequest{
                         byteArrayOutputStream.write(buffer, 0, len);
                     }
                     String data = byteArrayOutputStream.toString("UTF-8");
-                    return getResponse(connection, inputStream, data);
+                    return getResponse(connection, inputStream, data,request.getURL());
                 }else {
-                    return getResponse(connection, null, "未获取服务器响应数据");
+                    return getResponse(connection, null, "未获取服务器响应数据",request.getURL());
                 }
             }catch (Exception e){
                 return getErrorResponse(e.getMessage());

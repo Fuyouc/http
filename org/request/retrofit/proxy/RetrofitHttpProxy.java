@@ -51,12 +51,16 @@ public class RetrofitHttpProxy implements InvocationHandler {
             handler.handler(request,method,parameterValue);
         }
 
-        String oldURL = request.getURL();
-
-        oldURL = oldURL.startsWith("/") ? oldURL.substring(1,oldURL.length()) : oldURL;
-
-        request.setURL(service + oldURL);
-
+        if (request.getURL() == null || "".equals(request.getURL()) || !(request.getURL().startsWith("http") || request.getURL().startsWith("https"))){
+            if (method.getAnnotation(URL.class) == null){
+                String oldURL = request.getURL();
+                oldURL = oldURL.startsWith("/") ? oldURL.substring(1,oldURL.length()) : oldURL;
+                request.setURL(service + oldURL);
+            }else {
+                URL url = method.getAnnotation(URL.class);
+                request.setURL(url.value());
+            }
+        }
         return handler(request,method,parameterValue);
     }
 

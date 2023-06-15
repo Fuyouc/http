@@ -4,7 +4,7 @@ import java.lang.annotation.*;
 
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.METHOD)
+@Target({ElementType.METHOD,ElementType.PARAMETER})
 public @interface Headers {
-    Header[] header();
+    Header[] header() default {};
 }

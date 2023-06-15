@@ -40,9 +40,9 @@ public class GetRequest extends AbstractNetworkRequest {
                         sb.append(line);
                     }
                     reader.close();
-                    return getResponse(connection, inputStream, sb.toString());
+                    return getResponse(connection, inputStream, sb.toString(),url);
                 }else {
-                    return getResponse(connection, null, "未获取服务器响应数据");
+                    return getResponse(connection, null, "未获取服务器响应数据",url);
                 }
             }catch (Exception e){
                 return getErrorResponse(e.getMessage());

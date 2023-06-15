@@ -1,5 +1,6 @@
 package org.json;
 
+
 import com.alibaba.fastjson2.JSONArray;
 import com.alibaba.fastjson2.JSONObject;
 
@@ -30,7 +31,7 @@ public final class Gson {
         return null;
     }
 
-    private static <T> Object jsonObject(JSONObject jsonObject,Class<T> targetClass) throws Exception {
+    private static <T> Object jsonObject(JSONObject jsonObject, Class<T> targetClass) throws Exception {
         if (Map.class.isAssignableFrom(targetClass)){
             return map(jsonObject);
         }else {
@@ -38,7 +39,7 @@ public final class Gson {
         }
     }
 
-    private static <T> Object jsonArray(JSONArray jsonArray,Class<T> targetClass) throws Exception {
+    private static <T> Object jsonArray(JSONArray jsonArray, Class<T> targetClass) throws Exception {
         if (List.class.isAssignableFrom(targetClass)){
             if (Map.class.isAssignableFrom(targetClass)){
                 return map(jsonArray);

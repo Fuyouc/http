@@ -28,7 +28,7 @@ public abstract class AbstractNetworkRequest implements NetworkRequest {
         }
     }
 
-    protected Response getResponse(HttpURLConnection connection, InputStream inputStream, String data) throws IOException {
+    protected Response getResponse(HttpURLConnection connection, InputStream inputStream, String data,String URL) throws IOException {
         Response response = new RequestResponse(
                 data,
                 connection.getResponseCode(),
@@ -36,7 +36,8 @@ public abstract class AbstractNetworkRequest implements NetworkRequest {
                 connection.getContentLength(),
                 connection.getContentType(),
                 connection.getHeaderFields(),
-                inputStream
+                inputStream,
+                URL
         );
         return response;
     }

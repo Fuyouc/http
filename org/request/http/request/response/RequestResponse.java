@@ -16,6 +16,8 @@ public class RequestResponse implements Response{
     private Map<String,List<String>> headers;
     private InputStream inputStream;
 
+    private String URL;
+
 
     public RequestResponse() {
     }
@@ -24,7 +26,7 @@ public class RequestResponse implements Response{
         this.data = data;
     }
 
-    public RequestResponse(String data, int code, String method, int contentLength, String contentType, Map<String, List<String>> headers, InputStream inputStream) {
+    public RequestResponse(String data, int code, String method, int contentLength, String contentType, Map<String, List<String>> headers, InputStream inputStream,String URL) {
         this.data = data;
         this.code = code;
         this.method = method;
@@ -32,6 +34,7 @@ public class RequestResponse implements Response{
         this.contentType = contentType;
         this.headers = headers;
         this.inputStream = inputStream;
+        this.URL = URL;
     }
 
     @Override
@@ -106,6 +109,10 @@ public class RequestResponse implements Response{
         return inputStream;
     }
 
+    @Override
+    public String getURL() {
+        return this.getURL();
+    }
 
     @Override
     public String toString() {
@@ -116,6 +123,8 @@ public class RequestResponse implements Response{
                 ", contentLength=" + contentLength +
                 ", contentType='" + contentType + '\'' +
                 ", headers=" + headers +
+                ", inputStream=" + inputStream +
+                ", URL='" + URL + '\'' +
                 '}';
     }
 }

@@ -61,4 +61,6 @@ public interface Response {
     Map<String, List<String>> getHeaders();
 
     InputStream getInputStream();
+
+    String getURL();
 }
